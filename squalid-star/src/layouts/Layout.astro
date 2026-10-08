@@ -1,0 +1,281 @@
+---
+import HighContrastToggle from '../components/HighContrastToggle.astro';
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#f3f1ea" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Tonkaw Siriwatdeachakul, home">
+        <span>TS</span>
+        <span class="wordmark-name">Tonkaw Siriwatdeachakul</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Connect</a>
+      </nav>
+      <HighContrastToggle />
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} Tonkaw Siriwatdeachakul</p>
+      <p>Built with curiosity, careful science, and Astro.</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    color-scheme: light;
+    --background: #f3f1ea;
+    --surface: #fbfaf6;
+    --surface-strong: #e9e5da;
+    --text: #15252a;
+    --muted: #53645f;
+    --line: #b9c1b9;
+    --accent: #2f6f72;
+    --accent-strong: #164e52;
+    --accent-soft: #d5e7e6;
+    --focus: #b85f2f;
+    --font-display: 'Libre Baskerville', Georgia, serif;
+    --font-body: 'DM Sans', Arial, sans-serif;
+  }
+
+  :root[data-contrast='high'] {
+    color-scheme: light;
+    --background: #ffffff;
+    --surface: #ffffff;
+    --surface-strong: #e8e8e8;
+    --text: #000000;
+    --muted: #222222;
+    --line: #000000;
+    --accent: #004b4f;
+    --accent-strong: #002d31;
+    --accent-soft: #d7f4f4;
+    --focus: #9a3200;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    color: var(--surface);
+    background: var(--accent-strong);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    background: var(--accent-strong);
+    transform: translateY(-150%);
+    transition: transform 120ms ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) auto auto;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 5rem;
+    padding: 0.85rem clamp(1.25rem, 5vw, 5rem);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    color: var(--text);
+    font-family: var(--font-display);
+    text-decoration: none;
+  }
+
+  .wordmark > span:first-child {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    color: var(--accent-strong);
+    font-size: 0.75rem;
+  }
+
+  .wordmark-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4rem;
+  }
+
+  nav a {
+    position: relative;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.35rem;
+    left: 0;
+    height: 1px;
+    background: var(--accent);
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 180ms ease;
+  }
+
+  nav a:hover::after,
+  nav a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  nav a:focus-visible,
+  .site-footer a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  .site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem clamp(1.25rem, 5vw, 5rem);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .site-footer p {
+    margin: 0;
+  }
+
+  .site-footer a {
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .site-header {
+      grid-template-columns: 1fr auto;
+    }
+
+    nav {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-content: flex-start;
+      padding-top: 0.25rem;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .site-header {
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .wordmark-name {
+      display: none;
+    }
+
+    nav {
+      gap: 0.8rem 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    nav a {
+      white-space: nowrap;
+    }
+
+    .site-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+</style>

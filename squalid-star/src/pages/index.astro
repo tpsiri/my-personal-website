@@ -1,0 +1,808 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const researchAreas = [
+  {
+    eyebrow: '01 · Genomics',
+    title: 'Decoding the genome',
+    description:
+      'Exploring how genomic variation, regulatory features, and disease-associated signals shape biological outcomes.',
+    tags: ['DNA-seq', 'Genomic analysis', 'Variant interpretation'],
+    status: 'Current focus',
+  },
+  {
+    eyebrow: '02 · Transcriptomics',
+    title: 'Reading the cell’s message',
+    description:
+      'Using transcriptomic profiles to understand gene expression, regulatory change, and the molecular patterns behind disease.',
+    tags: ['RNA-seq', 'Expression analysis', 'Functional genomics'],
+    status: 'Current focus',
+  },
+  {
+    eyebrow: '03 · Cancer biology',
+    title: 'Finding meaning in cancer data',
+    description:
+      'Connecting large-scale molecular data with cancer biology to identify informative signals and support more targeted study.',
+    tags: ['Cancer biology', 'Biomarkers', 'Precision medicine'],
+    status: 'Research direction',
+  },
+];
+
+const modules = [
+  'Bioinformatics and computational biology',
+  'Genomic and transcriptomic analysis',
+  'Statistics for biological data',
+  'Molecular and cellular biology',
+  'Cancer biology and precision medicine',
+];
+
+const skills = [
+  'RNA-seq and DNA-seq analysis',
+  'Genome and transcriptome interpretation',
+  'Bioinformatics workflow design',
+  'Biological data visualisation',
+  'Laboratory technique and experimental design',
+  'Scientific writing and communication',
+];
+---
+
+<Layout
+  title="Tonkaw Siriwatdeachakul | Bioinformatics Researcher"
+  description="Researcher in bioinformatics, genomics, transcriptomics, cancer biology, and precision medicine."
+>
+  <section class="hero" id="top">
+    <div class="hero-orbit" aria-hidden="true">
+      <span class="orbit orbit-one"></span>
+      <span class="orbit orbit-two"></span>
+      <span class="orbit-core"></span>
+    </div>
+
+    <div class="hero-content">
+      <p class="kicker">Postgraduate researcher · Bioinformatics</p>
+      <h1>Tonkaw<br />Siriwatdeachakul</h1>
+      <p class="hero-subtitle">Following the data towards <em>deeper biology.</em></p>
+      <p class="hero-intro">
+        I’m Tonkaw Siriwatdeachakul, a postgraduate researcher combining laboratory experience with
+        computational analysis to study genomic and transcriptomic patterns in cancer.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#research">Explore my research</a>
+        <a class="button button-secondary" href="#contact">Connect with me</a>
+      </div>
+      <div class="hero-meta" aria-label="Current education and research focus">
+        <span>Master’s in Bioinformatics</span>
+        <span>University of Liverpool</span>
+        <span>PhD candidate in progress</span>
+      </div>
+    </div>
+
+    <aside class="hero-note" aria-label="Research statement">
+      <span class="note-mark">✦</span>
+      <p>“The most meaningful questions are often hidden in the patterns between sequence, structure, and signal.”</p>
+      <span class="note-caption">Research perspective</span>
+    </aside>
+  </section>
+
+  <section class="about section-shell" id="about">
+    <SectionHeading
+      number="01"
+      title="About me"
+      description="A biomedical scientist with a strong foundation in the laboratory and a growing practice in computational research."
+    />
+    <div class="about-grid">
+      <div class="about-lead">
+        <p class="large-copy">
+          I am a postgraduate researcher in MSc Bioinformatics, graduating from a first-class BSc in
+          Biomedical Science.
+        </p>
+        <p>
+          My work sits at the intersection of bioinformatics, genomics, transcriptomics, cancer biology,
+          and precision medicine. I am particularly interested in using RNA-seq and DNA-seq data to
+          identify biological patterns, interpret complex datasets, and move research closer to clinical impact.
+        </p>
+      </div>
+      <div class="about-quote">
+        <span>Current direction</span>
+        <p>Build rigorous computational expertise while contributing to research that turns molecular insight into meaningful biological change.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="research section-shell" id="research">
+    <SectionHeading
+      number="02"
+      title="Research focus"
+      description="A focused exploration of the molecular systems that shape cancer and how genomic data can help reveal them."
+    />
+    <div class="research-grid">
+      {researchAreas.map((area) => <ResearchCard {...area} />)}
+    </div>
+  </section>
+
+  <section class="education section-shell" id="education">
+    <SectionHeading
+      number="03"
+      title="Academic journey"
+      description="A foundation built through biomedical laboratory work, followed by studies in computational biology and data-driven analysis."
+    />
+    <div class="timeline">
+      <article class="timeline-item">
+        <div class="timeline-date">2024–2025</div>
+        <div>
+          <p class="timeline-type">Master of Science</p>
+          <h3>MSc Bioinformatics</h3>
+          <p>University of Liverpool</p>
+          <p class="timeline-detail">Current postgraduate study in computational methods, biological data analysis, and genomic research.</p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <div class="timeline-date">2020–2023</div>
+        <div>
+          <p class="timeline-type">Bachelor of Science</p>
+          <h3>BSc (Hons) Biomedical Science</h3>
+          <p>First Class Honours</p>
+          <p class="timeline-detail">Hands-on laboratory experience across biomedical science disciplines, paired with a strong scientific foundation.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="experience section-shell" id="work">
+    <SectionHeading
+      number="04"
+      title="Learning in practice"
+      description="The academic and technical foundation I am developing across molecular biology, computation, and research communication."
+    />
+    <div class="experience-grid">
+      <div class="skills-panel">
+        <p class="panel-label">Technical foundation</p>
+        <h3>Skills I am building</h3>
+        <ul>
+          {skills.map((skill) => <li><span aria-hidden="true">↗</span>{skill}</li>)}
+        </ul>
+      </div>
+      <div class="modules-panel">
+        <p class="panel-label">Current modules</p>
+        <h3>Areas of study</h3>
+        <ul>
+          {modules.map((module) => <li><span aria-hidden="true">✦</span>{module}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects section-shell">
+    <SectionHeading
+      number="05"
+      title="Projects & relevant work"
+      description="Current university work and future research projects are being shaped around genomic and transcriptomic analysis."
+    />
+    <div class="project-note">
+      <span class="project-number">01</span>
+      <div>
+        <p class="eyebrow">Selected work · Coming soon</p>
+        <h3>University modules and research projects</h3>
+        <p>
+          I am currently developing project details, datasets, methods, and outputs from my MSc studies.
+          This section will be expanded with completed work, research notes, code, and links as they become available.
+        </p>
+      </div>
+      <a href="#contact">Ask about my work <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="contact section-shell" id="contact">
+    <div class="contact-copy">
+      <p class="kicker">Open to collaboration</p>
+      <h2>Let’s explore what<br />the data can reveal.</h2>
+      <p>
+        I am interested in connecting with researchers, supervisors, and organisations working in cancer biology,
+        genomics, transcriptomics, and precision medicine.
+      </p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:tonkaw.siriwatdeachakul@example.com">
+        <span>Email</span>
+        <strong>tonkaw.siriwatdeachakul@example.com</strong>
+      </a>
+      <a href="https://github.com/" target="_blank" rel="noreferrer">
+        <span>GitHub</span>
+        <strong>Profile and projects</strong>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+        <span>LinkedIn</span>
+        <strong>Academic connections</strong>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.45fr);
+    align-items: end;
+    gap: clamp(2rem, 7vw, 7rem);
+    min-height: calc(100svh - 5rem);
+    overflow: hidden;
+    padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 7vw, 8rem) clamp(4rem, 7vw, 6rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    content: '';
+    opacity: 0.16;
+    mask-image: linear-gradient(to right, black, transparent 82%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 76rem;
+  }
+
+  .kicker,
+  .eyebrow {
+    margin: 0 0 1.2rem;
+    color: var(--accent-strong);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 52rem;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 8vw, 7.5rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  .hero-subtitle {
+    margin: 1.5rem 0 0;
+    color: var(--accent-strong);
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.8vw, 2.25rem);
+    font-style: italic;
+    line-height: 1.35;
+  }
+
+  .hero-subtitle em {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .hero-intro {
+    max-width: 42rem;
+    margin: 2rem 0 0;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  .button-primary {
+    color: var(--surface);
+    background: var(--accent-strong);
+  }
+
+  .button-primary:hover {
+    background: var(--accent);
+  }
+
+  .button-secondary {
+    color: var(--accent-strong);
+    background: transparent;
+  }
+
+  .button-secondary:hover {
+    color: var(--surface);
+    background: var(--accent);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.4rem;
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .hero-meta span::before {
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: var(--accent);
+    content: '';
+  }
+
+  .hero-note {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 1.4rem;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    box-shadow: 0 1.5rem 4rem rgba(21, 37, 42, 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .note-mark {
+    color: var(--accent);
+    font-size: 2rem;
+  }
+
+  .hero-note p {
+    margin: 1rem 0 2rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .note-caption {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-orbit {
+    position: absolute;
+    top: 8%;
+    right: -7rem;
+    width: 32rem;
+    height: 32rem;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .orbit {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+  }
+
+  .orbit-one {
+    transform: rotate(35deg) scaleX(0.6);
+  }
+
+  .orbit-two {
+    transform: rotate(-28deg) scaleX(0.42);
+  }
+
+  .orbit-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0.8rem color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .section-shell {
+    width: min(100%, 92rem);
+    margin: 0 auto;
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 7vw, 8rem);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    margin-left: clamp(3rem, 8vw, 7rem);
+  }
+
+  .about-lead {
+    max-width: 48rem;
+  }
+
+  .about-lead p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  .about-lead .large-copy {
+    margin-top: 0;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 3vw, 2.4rem);
+    line-height: 1.45;
+  }
+
+  .about-quote {
+    align-self: end;
+    padding: 1.6rem 0 0 1.6rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  .about-quote span,
+  .panel-label {
+    color: var(--accent-strong);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .about-quote p {
+    margin: 0.8rem 0 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  .research {
+    border-top: 1px solid var(--line);
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .education {
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline {
+    margin-left: clamp(3rem, 8vw, 7rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline-date {
+    color: var(--accent-strong);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .timeline-type {
+    margin: 0 0 0.35rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .timeline-item h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-weight: 500;
+  }
+
+  .timeline-item > div:last-child > p:not(.timeline-type):not(.timeline-detail) {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+  }
+
+  .timeline-detail {
+    max-width: 44rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .experience {
+    border-top: 1px solid var(--line);
+  }
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-left: clamp(3rem, 8vw, 7rem);
+  }
+
+  .skills-panel,
+  .modules-panel {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background: var(--surface);
+  }
+
+  .skills-panel h3,
+  .modules-panel h3 {
+    margin: 0.5rem 0 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skills-panel li,
+  .modules-panel li {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+  }
+
+  .skills-panel li:last-child,
+  .modules-panel li:last-child {
+    border-bottom: 0;
+  }
+
+  .skills-panel li span,
+  .modules-panel li span {
+    color: var(--accent);
+  }
+
+  .projects {
+    border-top: 1px solid var(--line);
+  }
+
+  .project-note {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    margin-left: clamp(3rem, 8vw, 7rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background: var(--surface-strong);
+  }
+
+  .project-number {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    color: var(--accent-strong);
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .project-note h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 500;
+  }
+
+  .project-note p:not(.eyebrow) {
+    max-width: 51rem;
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .project-note > a {
+    color: var(--accent-strong);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: clamp(3rem, 9vw, 9rem);
+    align-items: end;
+    margin-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .contact h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+  }
+
+  .contact-copy > p:last-child {
+    max-width: 39rem;
+    margin: 1.5rem 0 0;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: grid;
+  }
+
+  .contact-links a {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+
+  .contact-links a:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-links span {
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .contact-links strong {
+    color: var(--accent-strong);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .contact-links a:hover {
+    color: var(--accent);
+  }
+
+  .contact-links a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-note {
+      max-width: 31rem;
+    }
+
+    .about-grid,
+    .contact {
+      grid-template-columns: 1fr;
+    }
+
+    .about-grid,
+    .timeline,
+    .experience-grid,
+    .project-note {
+      margin-left: 0;
+    }
+
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-note {
+      grid-template-columns: auto 1fr;
+    }
+
+    .project-note > a {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .hero {
+      padding-top: 4rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
+    .hero-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .hero-meta {
+      flex-direction: column;
+    }
+
+    .hero-orbit {
+      right: -15rem;
+    }
+
+    .section-shell {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .timeline-item,
+    .experience-grid,
+    .project-note {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+      gap: 0.7rem;
+    }
+
+    .project-note > a {
+      grid-column: 1;
+    }
+
+    .contact-links a {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  }
+</style>
